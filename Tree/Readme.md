@@ -16,8 +16,12 @@ Red/Black algirhtm is a BST in which each node is colered either red or black.
 
 The balance and color invariants together imply that the longest path from the root to a leaf is at most twice as long as the shortest path. 
 
+From    http://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/          
+### Black Height of a Red-Black Tree
+Black height is number of black nodes on a path from a node to a leaf.     
+Leaf nodes are alco counted black nodes. 
 
-From    http://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/        
+
 #### Why Red-black trees?        
 Most of the BST take O(h) time where h is the hiegh of the BST.
 The height of a Red-Black tree is always O(Log N) where n is the number of nodes in the tree.

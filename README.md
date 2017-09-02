@@ -1,8 +1,10 @@
 
 # Algorithm
+* Dynamic Programming :  Time recursion upside down. - Floyd-Warshall algorithm for the all pairs shortest path problem.
+* Greedy : FInd solution by always making the choice that looks optimal at the moment. - Prim's algorithm, Kruskal's algorithm
+* Divide and Conquer : Divide the array into smaller arrays segment and then sort this small array element. After all that, combine into as one array. - Merge sort, Quick sort, Strassen's algorithm, FFT.
 
 
-* Divide and Conquer : Divide the array into smaller arrays segment and then sort this small array element. After all that, combine into as one array. 
 
 
 

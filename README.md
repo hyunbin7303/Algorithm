@@ -22,6 +22,31 @@ A model for many physical systems:
 * Vacancy percentage estimates p*. 
 
 
+## Stacks and queues
+### Stack : Array Implementation
+**Array Implementation of a stack
+* Use array s[] to store N items on stack.
+* Push() : add new item at s[N].
+* pop() : remove item from s[N-1].
+* Defect : Stack overflows happen when N exceeds capacity.
+
+* Overflow and underflow
+  - Underflow - throw exception if pop from an empty stack.
+  - Overflow - use resizing array for array implementation.
+* Loitering - Holding a reference to an object when it is no longer needed.
+```
+public String pop()
+{
+  String item = s[--N];
+  s[N] = null;
+  return item;
+}
+```
+
+
+### Queue 
+
+
 
 ## Sort
 
@@ -33,15 +58,7 @@ Bubble sort algorithm compares with adjacent elements from an array, which is us
 **Best Case** : O(n)          
 **Worst Case** : O(n^2) - Already sorted as a decending order. 
 
-                             Cost            Time
-For(i ~ Length(array) -1  &nbsp;&nbsp;&nbsp;&nbsp;       C1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 n                                
-  do For(j - Length(array)-i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     C2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                       (n-1)(n-i+1)                      
-  do if(Array(j) > Array(j+1))   C3                        (n-1)(n-i)                     
-       Then Change!              C4                        (n-1)(n-i)      
-            
- - T(n) = C1 * n + C2 * ((n-1)(n-i+1))  + C3 * (n-1)(n-i)   + C4 * (n-1)(n-i)                     
-    
-     
+
 **Best Case Proof**
 
 

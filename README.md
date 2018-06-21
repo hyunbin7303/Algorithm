@@ -22,9 +22,22 @@ A model for many physical systems:
 * Vacancy percentage estimates p*. 
 
 
+## Array 
+An Array  is a random access data structure, where3 each element can be accessed directly and in Constant time.      
+Array are stored in contigous 
+**But why is this?**           
+
+* A linked list is a sequential access data structure, where each element can be accessed
+only in particular order. 
+
+
 ## Stacks and queues
-### Stack : Array Implementation
-**Array Implementation of a stack
+### Stack 
+A stack is a container of objects that are inserted and removed according to the
+Last-In First-Out principle....
+Push the item into the stack, and pop the item out of the stack.
+
+**Array Implementation of a stack**
 * Use array s[] to store N items on stack.
 * Push() : add new item at s[N].
 * pop() : remove item from s[N-1].
@@ -42,10 +55,19 @@ public String pop()
   return item;
 }
 ```
-
-
 ### Queue 
 
+
+
+## Generics 
+
+
+### Iterators
+Suppose that we copy the iterator code from our linked list and resizing array implementations of a stack to the corresponding implementations of a queue.
+Which queue iterator(s) will correctly return the items in FIFO order?       
+Answer : linked-list iterator only            
+The linked-list iterator will work without modification because the items in the linked list are ordered in FIFO order (which is the main reason we dequeue from the front and enqueue to the back instead of vice versa).
+The array iterator will fail for two reasons. First, the the items should be iterated over in the opposite order. Second, the items won't typically be stored in the array as entries 0 to n-1n−1.
 
 
 ## Sort

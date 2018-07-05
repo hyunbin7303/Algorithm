@@ -88,4 +88,25 @@ Bubble sort algorithm compares with adjacent elements from an array, which is us
 
 ## Tree
 
+
+
+## Binary Search 
+
+### Analysis
+**Proposition** : Binary search uses at most 1+lgN compares to search in a sorted array of size N.     
+* Def. T(N) = # compares to binary search in a sorted subarray of size <= N.
+
+Binary Search recurrence  T(N) <= T(N/2) + 1 for N>1 , with T(1) = 1    
+In here, T(N/2) part --> Left or right half        
++1 part - possible to implement with one 2-way compare (instead of 3-way)      
+
+T(N) <= T(N/2) + 1    .....     
+     <= T(N/4) + 1 + 1.......           
+     <= T(N/8) + 1 + 1 ...........               
+     .............
+     <= T(N/N) +1 +1 +1 + .... + 1        **Stop Applying , T(1) = 1**
+     = 1+ lgN
+
+
+
 https://github.com/hyunbin7303/Algorithm/blob/master/Tree/Readme.md        

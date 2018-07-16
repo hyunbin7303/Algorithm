@@ -111,4 +111,22 @@ T(N) <= T(N/2) + 1    .....
 
 
 
-https://github.com/hyunbin7303/Algorithm/blob/master/Tree/Readme.md        
+## Karatsuba Algorithm
+Resource :  https://brilliant.org/wiki/karatsuba-algorithm/        
+The Karatsuba algorithm is a fast multiplication algorithm that uses a divide and conqure approach
+to multiply two numbers.    
+The algorithm takes two digits of n-length and splits digits recursively into n/2 length
+until they're small enough to computer using grade-school multiplication.
+```
+x = a* B^m + b
+y = c* B^m + d
+x*y = B^m(ac) + b^m/2(ad+bc) + bd*
+```
+
+
+
+* Running time : O(n^log3)
+
+
+
+

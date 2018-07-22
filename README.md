@@ -128,5 +128,21 @@ x*y = B^m(ac) + b^m/2(ad+bc) + bd*
 * Running time : O(n^log3)
 
 
+## 3-Way Merge Sort 
+Divide into thirds, sort each third, combine all of them using a three-way merge subroutine.        
+Running time : nlog(n)            
+
+
+## K-Way Merge Algorithm          
+K-Way Merge Sort. K-sorted Arrays.           
+Each with n elements, want to combine them into a single array of kn elements.        
+Using the merge subroutine taught in lecture, you merge the first 2 arrays, then merege the 3rd given
+
+            
+The merge list size is always O(kn), merging is linear in the size of the larger array, 
+and there are k iterations. 
+
+
+
 
 

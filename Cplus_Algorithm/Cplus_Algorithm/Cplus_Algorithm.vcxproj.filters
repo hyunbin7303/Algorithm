@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="90DegreeRotation.cpp">
+    <ClCompile Include="KaratsubaTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

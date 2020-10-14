@@ -101,17 +101,13 @@ int main()
 	cout << "Just wanted to check whether information stored properly... " << endl;
 	PrintOutArray(Array_2D, Input_ROW, Input_COL);
 	int sum = SumHourGlass(Array_2D, Input_ROW, Input_COL);
-
 	cout << "SUM OF HOURGLASS : " << sum << ", Congrats! " << endl;
 
-	
 	//deleteArray(Array_2D, Input_ROW, Input_COL);
-	
 	for (int j = 0; j < Input_COL; j++)
 	{
 		delete[] Array_2D[j];
 	}
-
 	delete[] Array_2D;
 	return 0;
 }

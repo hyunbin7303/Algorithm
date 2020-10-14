@@ -16,7 +16,6 @@ void MyWaySolution(int SIZE);
 int findInsideVec(vector<string> InputString, string word);
 void HackerRankIdea(int SIZE);
 void FromBlog(int SIZE);
-
 int main()
 {
 	int size;

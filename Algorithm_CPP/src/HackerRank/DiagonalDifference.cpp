@@ -13,7 +13,6 @@ using namespace std;
 
 int mySolution(int size)
 {
-
 	vector< vector<int> > a(size, vector<int>(size));
 	for (int a_i = 0; a_i < size; a_i++) {
 		for (int a_j = 0; a_j < size; a_j++) {

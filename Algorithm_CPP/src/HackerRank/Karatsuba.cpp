@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <string>
 using namespace std;
-
 // making two numbers to the same length
 int EqualLength(string& str1, string& str2)
 {
@@ -27,8 +26,6 @@ int EqualLength(string& str1, string& str2)
 	return lengthStr1;
 
 }
-
-
 string addBitsString(string first, string second)
 {
 	string res;
@@ -52,12 +49,10 @@ string addBitsString(string first, string second)
 	}
 
 }
-
 int multiplySingleBit(string a, string b)
 {
 	return (a[0] - '0')* (b[0] - '0');
 }
-
 long int multiply(string X, string Y)
 {
 	int n = EqualLength(X, Y);
@@ -86,7 +81,6 @@ long int multiply(string X, string Y)
 	// Combine the three products to get the final result.
 	return P1 * (1 << (2 * sh)) + (P3 - P1 - P2)*(1 << sh) + P2;
 }
-
 // Driver program to test aboev functions
 int main()
 {

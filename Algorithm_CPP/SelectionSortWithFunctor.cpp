@@ -12,7 +12,7 @@ void selectionSort(int *array, int size, bool(*comparison)(int, int))
 		{
 			if (comparison(array[bestIndex], array[current]))
 			{
-				bestIndex = current;
+				bestIndex = current; 
 			}
 		}
 		std::swap(array[start], array[bestIndex]);

@@ -5,6 +5,11 @@
 #include <iostream>
 
 
+namespace Algo{
+
+};
+
+
 class MyAlgorithm
 {
     public:

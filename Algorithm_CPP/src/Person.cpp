@@ -1,5 +1,8 @@
 #include "Person.h"
-Person::Person()
+
+
+template<class genType, int size>
+Person<genType,size>::Person() 
 {
     printf("Person Object Created\n");
     strcpy(FirstName, "");

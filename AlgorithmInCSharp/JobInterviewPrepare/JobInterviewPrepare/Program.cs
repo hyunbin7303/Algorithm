@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobInterviewPrepare.Searching;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -6,9 +7,11 @@ namespace JobInterviewPrepare
 {
     class Program
     {
-        static void SinglyLL()
+        static void TestingCircularSinglyLL()
         {
-
+        }
+        static void TestingSinglyLL()
+        {
         }
         static void TestingDoublyLL(int size)
         {
@@ -39,14 +42,13 @@ namespace JobInterviewPrepare
                 node = node.next;
             }
         }
-        static void BinaryAlgorithm()
+        static void TestingBinarySearch()
         {
-            Console.WriteLine("Hello World!");
-            Algorithm algorithm = new Algorithm();
-            Console.WriteLine("Binary Search Tree");
             int[] arr = { 10, 20, 30, 40, 50, 60, 70, 85, 90, 100, 110 };
             int find = 95;
-            int check = algorithm.BinarySearch(arr, 0, arr.Length, find);
+            BinarySearch bs = new BinarySearch();
+            //Search a sorted array by repeatedly dividing the search interval in half. 
+            int check = bs.BinarySearching(arr, 0, arr.Length, find);
             if (check != -1)
             {
                 Console.WriteLine($"SUCCESS!! Index number : {check}");
@@ -85,7 +87,6 @@ namespace JobInterviewPrepare
 
 
         }
-        
 
         static void Main(string[] args)
         {
@@ -95,7 +96,5 @@ namespace JobInterviewPrepare
         // Longest Common Substring question!
         // Suffice to say, it is absolutely essential that you be prepared to solve recursion interview questions in your interview.
         // Making Change. // Given an input amount of change x, write a fucntion to determine the minimum number of coins required to make that amount of change?
-
-
     }
 }

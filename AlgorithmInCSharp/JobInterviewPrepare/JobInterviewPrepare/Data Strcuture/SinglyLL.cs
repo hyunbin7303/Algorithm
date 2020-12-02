@@ -3,7 +3,7 @@
 // SLL contain nodes which have a data part and an address part.
 // next which points to the next node in the sequence of nodes.
 // the next pointer of the last node will point to null. 
-namespace AlgorithmLib
+namespace JobInterviewPrepare
 {
     public class SinglyLL
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace JobInterviewPrepare
 {
     internal class Node
@@ -14,20 +11,11 @@ namespace JobInterviewPrepare
             next = null;
         }
     }
-
-
-
-    public interface IAlgorithm
+    public interface ILinkedList
     {
-
-
-
         // A LL is a linear data strcture which consists of a group of nodes in a sequence. 
         int SinglyLinkedList();
         int DoublyLinkedList();
         int CircularLinkedList();
-
-        //Search a sorted array by repeatedly dividing the search interval in half. 
-        int BinarySearch(int [] arr, int l, int r, int target);
     }
 }

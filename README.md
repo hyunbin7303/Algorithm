@@ -146,3 +146,31 @@ and there are k iterations.
 
 
 
+## Required to study for Job Interview.
+3. Remove duplicates from an unsorted binary tree
+
+4. Find the angle between an hour and second hand.
+
+3. Count the number of 1 bits in a block of memory.
+
+4. Algorithms and data structures.
+// Code solutions.
+    Implement a stack using array.
+    Implement a stack using linked list.
+    Implement a stack using two queues.
+    Implement sort an stack using another stack????
+
+// Implementing a stack using array.
+
+5. Dynamic Programming.
+
+    Longest Increasing Subsequence.
+    Edit Distance
+    Minimum Partition
+    Ways to cover a distance.
+    Longest Path in Matrix.
+    Subset Sum Problems.
+    Optimal Strategy for a game.
+    0-1 Knapsack Problem.
+    Boolean Paranthesizataion Problem.
+    

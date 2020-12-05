@@ -1,4 +1,5 @@
-﻿using JobInterviewPrepare.Searching;
+﻿using JobInterviewPrepare.Data_Strcuture;
+using JobInterviewPrepare.Searching;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -87,14 +88,80 @@ namespace JobInterviewPrepare
 
 
         }
+        //create binary search.
+        static int BinarySearch_01(int[] arr, int front, int end, int goal)
+        {
+            if (arr == null)
+                return -1;
 
+            // get the mid value.
+            int mid = (front + end) / 2;
+            if(arr[mid] == goal)
+            {
+                return mid;
+            }
+            else if (front >= end)
+            {
+                return -1;
+            }
+            // compare mid value with goal value.
+            //1. if goal is lower than mid
+            if (goal < arr[mid])
+            {
+                // call BinarySearch_01 again for find from the first .... (something)
+                return BinarySearch_01(arr, front, mid-1, goal);           
+            }
+            else //2. if goal is higher than mid 
+            {
+                // Call BinarySarch_901 again for find from the mid+1 to end. 
+                return BinarySearch_01(arr, mid + 1, end, goal);
+            }
+
+        }
+        static bool BinarySearch_01_Test()
+        {
+            int[] arr = { 10, 20, 30, 40, 50, 60, 70, 85, 90, 100, 110 };
+            int value = BinarySearch_01(arr, 0, arr.Length, 10);
+            return true;
+        }
+        static void TestFibonnaci()
+        {
+            int result = Recursive.FibonacciSequence(5);
+            Console.WriteLine($"Fibonnaci value : {result}");
+        }
+        static bool DoublyLLTesting()
+        {
+            //DoublyLinkedList
+            DoubleNode dn = new DoubleNode(10);
+            DoublyLL dll = new DoublyLL();
+            return true;
+        }
+
+        // Integration Testing. 
         static void Main(string[] args)
         {
-            BSTAlgorithm(1000);
+            // array testing
+            int[,] a = new int[3, 4] {
+               {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+               {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+               {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+            };
+            int l =a.GetLength(0);
+            int j = a.GetLength(1);
+
+            var check = a.Length;
+
+
+            //int[] check = new int[]
+            //{
+            //    3,4,5
+            //};
+            //int numCheck = check.GetLength(1) != null ? 0 : 1;
+
+            //BinarySearch_01_Test();
+            //BSTAlgorithm(1000);
+            //DoublyLLTesting();
+            TestFibonnaci();
         }
-        // Need to review 
-        // Longest Common Substring question!
-        // Suffice to say, it is absolutely essential that you be prepared to solve recursion interview questions in your interview.
-        // Making Change. // Given an input amount of change x, write a fucntion to determine the minimum number of coins required to make that amount of change?
     }
 }

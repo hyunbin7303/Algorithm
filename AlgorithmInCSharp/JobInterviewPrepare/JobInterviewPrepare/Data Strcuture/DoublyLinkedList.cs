@@ -25,7 +25,13 @@ namespace JobInterviewPrepare
         public void InsertFront(DoublyLinkedList dll, int value)
         {
             DoubleNode newNode = new DoubleNode(value);
+            newNode.next = dll.head;
             newNode.prev = null;
+            if(dll.head != null)
+            {
+                //dll.head.prev = newNode? 
+            }
+            dll.head = newNode;
         }
         public void InsertLast(DoublyLinkedList dll, int value)
         {

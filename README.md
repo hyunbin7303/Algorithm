@@ -148,11 +148,8 @@ and there are k iterations.
 
 ## Required to study for Job Interview.
 3. Remove duplicates from an unsorted binary tree
-
 4. Find the angle between an hour and second hand.
-
 3. Count the number of 1 bits in a block of memory.
-
 4. Algorithms and data structures.
 // Code solutions.
     Implement a stack using array.
@@ -161,7 +158,6 @@ and there are k iterations.
     Implement sort an stack using another stack????
 
 // Implementing a stack using array.
-
 5. Dynamic Programming.
 
     Longest Increasing Subsequence.

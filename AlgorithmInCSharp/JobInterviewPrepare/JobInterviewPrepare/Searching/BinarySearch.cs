@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace JobInterviewPrepare.Searching
+﻿namespace JobInterviewPrepare.Searching
 {
     public class BinarySearch
     {
-
         // l is the first index
         // r is the last index.
         public int BinarySearching(int[] arr, int l, int r, int target) // Recursive implementation.
@@ -25,19 +20,6 @@ namespace JobInterviewPrepare.Searching
                 return BinarySearching(arr, mid + 1, r, target);
             }
             return -1;
-        }
-        public static int BinarySearchRecursive(int[] arr, int min, int max, int target)
-        {
-            if (min > max)
-            {
-                return -1;
-            }
-            else
-            {
-                //int mid = (min + max) / 2;
-                //if()
-                return 0;
-            }
         }
         public int BinarySearchTesting(int[] arr, int l, int r, int target)
         {
@@ -58,7 +40,6 @@ namespace JobInterviewPrepare.Searching
             {
                 return BinarySearchTesting(arr, mid, r, target);
             }
-
         }
     }
 }

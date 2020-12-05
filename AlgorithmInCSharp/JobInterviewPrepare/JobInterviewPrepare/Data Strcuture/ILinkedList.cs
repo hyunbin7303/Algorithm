@@ -1,11 +1,11 @@
 ﻿
 namespace JobInterviewPrepare
 {
-    internal class Node
+    internal class SingleNode
     {
         internal int data;
-        internal Node next;
-        public Node(int d)
+        internal SingleNode next;
+        public SingleNode(int d)
         {
             data = d;
             next = null;

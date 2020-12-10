@@ -1,29 +1,36 @@
 ﻿using JobInterviewPrepare.Data_Strcuture;
+using JobInterviewPrepare.LeetCode;
 using JobInterviewPrepare.Searching;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-
 namespace JobInterviewPrepare
 {
     class Program
     {
-        static void TestingCircularSinglyLL()
-        {
-        }
         static void TestingSinglyLL()
         {
+            SinglyLinkedList sll = new SinglyLinkedList();
+            SingleNode sn = new SingleNode(10);
+            sll.AddNode(sn);
+            SingleNode sn1 = new SingleNode(20);
+            sll.AddNode(sn1);
+            SingleNode sn2 = new SingleNode(30);
+            sll.AddNode(sn2);
+            SingleNode sn3 = new SingleNode(40);
+            sll.AddNode(sn3);
+            SingleNode sn4 = new SingleNode(50);
+            sll.AddNode(sn4);
+
+            sll.Traverse(null);
+            Console.WriteLine("Reversing");
+            sll.ReversingLL();
+            sll.Traverse(null);
         }
         static void TestingDoublyLL(int size)
         {
             DoublyLinkedList dll = new DoublyLinkedList();
-            for (int i = 0; i < size; i++)
-            {
-
-            }
             var dn = new DoubleNode(10);
-            dn.prev = null;
-            dn.next = null;
             dll.head = dn;
 
             var dn2 = new DoubleNode(20);
@@ -57,10 +64,13 @@ namespace JobInterviewPrepare
         }
         static void BSTAlgorithm(int size)
         {
+            BSTNode FindThis = null;
+            int findthisNumber = 0;
             BSTNode root = null;
             BST bst = new BST();
-            int[] input = new int[size];
 
+
+            int[] input = new int[size];
             Random ran = new Random();
             Stopwatch stopwatch = new Stopwatch();
             for (int i = 0; i < size; i++)
@@ -74,6 +84,12 @@ namespace JobInterviewPrepare
             stopwatch = Stopwatch.StartNew(); 
             for (int i = 0; i < size; i++)
             {
+                if(i==5){
+                    root = bst.Insert(root, input[i]);
+                    FindThis = root;
+                    findthisNumber = input[i];
+                    continue;
+                }
                 root = bst.Insert(root, input[i]);
             }
             stopwatch.Stop();
@@ -85,6 +101,14 @@ namespace JobInterviewPrepare
             stopwatch.Stop();
             Console.WriteLine("Took {0} seconds for Traversing.", (double)stopwatch.ElapsedMilliseconds / 1000.0);
             Console.WriteLine();
+
+
+            stopwatch = Stopwatch.StartNew();
+            var check = bst.Find(FindThis, findthisNumber);
+            stopwatch.Stop();
+            Console.WriteLine("Took {0} seconds for Traversing.", (double)stopwatch.ElapsedMilliseconds / 1000.0);
+            Console.WriteLine();
+
 
 
         }
@@ -129,6 +153,12 @@ namespace JobInterviewPrepare
             int result = Recursive.FibonacciSequence(5);
             Console.WriteLine($"Fibonnaci value : {result}");
         }
+        static void TestFindTriplets()
+        {
+            int[] arr = { 0, -1, 2, -3, 1,4,5 };
+            int n = arr.Length;
+            ThreeSum.infTriplets(arr, n);
+        }
         static bool DoublyLLTesting()
         {
             //DoublyLinkedList
@@ -140,28 +170,12 @@ namespace JobInterviewPrepare
         // Integration Testing. 
         static void Main(string[] args)
         {
-            // array testing
-            int[,] a = new int[3, 4] {
-               {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
-               {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
-               {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
-            };
-            int l =a.GetLength(0);
-            int j = a.GetLength(1);
-
-            var check = a.Length;
-
-
-            //int[] check = new int[]
-            //{
-            //    3,4,5
-            //};
-            //int numCheck = check.GetLength(1) != null ? 0 : 1;
-
+            //TestingSinglyLL();
             //BinarySearch_01_Test();
-            //BSTAlgorithm(1000);
+            //BSTAlgorithm(10);
             //DoublyLLTesting();
-            TestFibonnaci();
+            //TestFibonnaci();
+            //TestFindTriplets();
         }
     }
 }

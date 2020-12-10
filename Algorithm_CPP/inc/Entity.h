@@ -29,9 +29,4 @@ class Entity
 
 };
 
-// template<class genType>
-// class genClass{
-//     genType storage[50];
-// }
-
 #endif

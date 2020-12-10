@@ -2,12 +2,14 @@
 #define MEASURE_H
 
 
-template<typename T, T myVal>
+template<typename T>
 class Measurement
 {
 public:
-    Measurement(T val = myVal);
+    Measurement(T val = T()); // Default Constrcutor.
     T getValue();
+    T getValue(uint32_t idx);
+    void setValue(uint32_t idx, T val);
     void setValue(T val);
 
 
@@ -16,21 +18,4 @@ private:
     T value;
 
 };
-
-// template <typename T, size_t N>
-// class Array{
-//     public:
-//     Array();
-//     size_t Size () const;
-//     T& operator[] (size_t i);
-//     const T& operator[] (size_t i) const;
-
-//     private:
-//     T data_[N];
-//     size_t size_;
-
-// };
-
-
-
 #endif

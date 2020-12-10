@@ -1,29 +1,34 @@
 ﻿using System;
+using System.Threading;
 
 namespace CSharpBestPractice
 {
+
+    public class CustomException : Exception
+    { }
+
+
     class Program
     {
+
+        // What are dynamic type variables? 
+        //You can store any type of value in the dynamic data type variable. Type checking for these types of variables takes place at run-time.  
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
         }
 
-        // HJow is exception handling implemented..
-        //try catch finnally throw!
 
-
-
-        // What are dynamic type variables? 
-        //You can store any type of value in the dynamic data type variable. Type checking for these types of variables takes place at run-time.  
     }
 }
 
 
 
 /*
-
-Managed code is a code created by the .NET compiler. It does not depend on the architecture of the target machine because it is executed by the CLR (Common Language Runtime), and not by the operating system itself.
+Managed code is a code created by the .NET compiler.
+It does not depend on the architecture of the target machine because it is executed by the CLR (Common Language Runtime),
+and not by the operating system itself.
 CLR and managed code offers developers few benefits, like garbage collection, type checking and exceptions handling.
 On the other hand, unmanaged code is directly compiled to native machine code and depends on the architecture of the target machine.
 It is executed directly by the operating system. In the unmanaged code,

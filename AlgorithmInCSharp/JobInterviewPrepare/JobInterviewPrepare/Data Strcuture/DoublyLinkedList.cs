@@ -17,6 +17,7 @@ namespace JobInterviewPrepare
         public DoubleNode(int data)
         {
             Data = data;
+            prev = next = null;
         }
     }
     public class DoublyLinkedList
@@ -29,7 +30,7 @@ namespace JobInterviewPrepare
             newNode.prev = null;
             if(dll.head != null)
             {
-                //dll.head.prev = newNode? 
+                //dll.head.prev = newNode?  
             }
             dll.head = newNode;
         }

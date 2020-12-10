@@ -1,57 +1,56 @@
-﻿//http://www.softwareandfinance.com/CSharp/Singly_Linked_List.html Test it later!
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿using System;
+// SLL contain nodes which have a data part and an address part.
+// next which points to the next node in the sequence of nodes.
+// the next pointer of the last node will point to null. 
 namespace JobInterviewPrepare
 {
     public class SinglyLinkedList
     {
         private int data;
-        private SinglyLinkedList next;
+        private SingleNode head;
         public SinglyLinkedList()
         {
-            data = 0;
-            next = null;
         }
-        public SinglyLinkedList(int value)
+        // insert into front
+        // something wrong in here?
+        public SingleNode InsertNext(int value)
         {
-            data = value;
-            next = null;
-        }
-        public SinglyLinkedList InsertNext(int value)
-        {
-            SinglyLinkedList node = new SinglyLinkedList(value);
-            if (this.next == null)
+            SingleNode node = new SingleNode(value);
+            if (this.head == null)
             {
                 node.next = null;
-                this.next = node;
+                this.head = node;
             }
             else
             {
-                SinglyLinkedList temp = this.next;
+                SingleNode temp = this.head;
                 node.next = temp;
-                this.next = node;
+                this.head = node;
             }
             return node;
         }
-        public int DeleteNext()
+
+        public void AddNode(SingleNode sn)
         {
-            if (next == null)
+            if (sn == null) return;
+            if (head == null)
             {
-                return 0;
+                head = sn;
             }
-            SinglyLinkedList node = this.next;
-            this.next = this.next.next;
-            node = null;
-            return 1;
-        }
-        public void Traverse(SinglyLinkedList node)
-        {
-            if (node == null)
+            else
             {
-                node = this;
+                SingleNode temp = head;
+                while(temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = sn;
+            }
+        }
+        public void Traverse(SingleNode node)
+        {
+            if (node == null) {
+                node = head;
             }
             Console.WriteLine("\nTraversing in forward direction. \n");
             while (node != null)
@@ -60,5 +59,25 @@ namespace JobInterviewPrepare
                 node = node.next;
             }
         }
+        // Reversing Linked LIst.
+        // 1. Initialize thee pointers prev as null. curr as head and next as null?...
+        // 2. Iterate through the linked list.
+        // Change head.
+        public void ReversingLL()
+        {
+            SingleNode prev = null; // This will be the result value.
+            SingleNode next = null;
+            SingleNode curr = head;
+
+            while(curr != null)
+            {
+                next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
+            head = prev;
+        }
+
     }
 }

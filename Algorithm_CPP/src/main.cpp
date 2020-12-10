@@ -1,11 +1,10 @@
 #include "../inc/shraed_lib.h"
+#include "../inc/Person.h"
 #include "../inc/MyAlgorithm.h"
 #include "../inc/Entity.h"
-#include "../inc/Box.h"
-#include "../inc/Person.h"
+#include "../inc/FileManager.h"
 
-
-
+#include <vector>
 
 template <class T, size_t N = 10>
 struct my_array{
@@ -21,31 +20,40 @@ class Foo{
     genType tmp = el1; el1 = el2; el2 = tmp;
 }
 
+
+
+
 int main()
 {
+
+    fstream afile;
+    afile.open("fileName.txt", ios::out | ios:: in);
+
+    FileManager fm{};
+    fm.readFromFile(afile);
+    // Stored to the objects?.....Entity object?
+    Entity e1("Object 1", 100, 2000);
+    Entity e2("Object 2", 100, 2000);
+    Entity e3("Object 3", 100, 2000);
+    Entity e4("Object 4", 100, 2000);
+
+
+    std::vector<Entity> e_list;
+    e_list.insert(e_list.begin(), e1);
+    e_list.insert(e_list.begin(), e2);
+    e_list.insert(e_list.begin(), e3);
+    e_list.insert(e_list.begin(), e4);
+    std::cout << "The size of Entities :" << e_list.size() <<std::endl;
+    //Call Algorithm class. 
+    MyAlgorithm m1{};
+    m1.BinarySearch(3, 3);
+    double spaceComResult = m1.SpaceComplexity();
+    double timeComResult = m1.TimeComplexity();
+
     Foo<> me;//he template arguments must be present but you can leave them empty.
-
-
-    int a = 20;
-    int b = 30;
-    Entity e0();
-    MyAlgorithm m1;
-    // int num = m1.BinarySearch(20,30);
-    //  MyAlgorithm test1();
-    // int num = test1.BinarySearch(10, 3);
-    // strcpy(p1, "KEVIN");
-    Box box1(1, 2, 3);
-    Box box2{ 2, 3, 4 };
-    Box box3; // C2512: no appropriate default constructor available
-    Entity("Object 1", 100, 2000);
-
-
-    Person<int> intObj1; // Use the default size;
-    Person<int, 50> intObj2;
-    Person<float, 123> floatObj;
-    swap(intObj1,intObj2);
-    // intObj1.swap(intObj2, floatObj);
-
+    // Person<int> intObj1(); // Use the default size;
+    // Person<int, 50> intObj2();
+    // Person<float, 123> floatObj();
     system("pause");
     return 0;
 }

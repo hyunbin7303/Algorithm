@@ -33,6 +33,9 @@ Print the answer as part of a message:
  <list of codes>
 The list of codes should be print out one per line in lexicographic order with no duplicates.
 
+
+
+
 Part B: What percentage of calls from fixed lines in Bangalore are made
 to fixed lines also in Bangalore? In other words, of all the calls made
 from a number starting with "(080)", what percentage of these calls
@@ -43,3 +46,44 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+
+codes_list = []
+
+i = 0
+def testFunc(alldata):
+  for record in alldata:
+
+# - Fixed lines start with an area code enclosed in brackets. The area
+#   codes vary in length but always begin with 0.
+    caller_area_code = record[0]
+    receiver = record[1]
+    
+    if caller_area_code.startswith('(080)') != -1:
+      
+
+      #if receiver.startswith(0:)
+        #elif  ~~ = = "140":
+        # codes.append("140")
+
+
+
+
+
+
+
+#- Mobile numbers have no parentheses, but have a space in the middle of the number to help readability. The prefix of a mobile number
+#  is its first four digits, and they always start with 7, 8 or 9.
+# - Telemarketers' numbers have no parentheses or space, but they start
+#   with the area code 140.
+
+
+
+# The list() function will convert the set into a list.
+# can use in-built methods sorted() or list.sort() for sorting which are the implementation of Timesort and SampleSort, respectivtely.
+# Lexicographic order = the numbers need to be sorted (ascending order).
+# Both these sorting methods have a wrost-case time-complexity of O(n log n ) . 
+
+#https://docs.python.org/3/howto/sorting.html
+
+

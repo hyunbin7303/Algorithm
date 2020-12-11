@@ -49,19 +49,28 @@ The percentage should have 2 decimal digits
 
 
 codes_list = []
-
 i = 0
 def testFunc(alldata):
   for record in alldata:
-
 # - Fixed lines start with an area code enclosed in brackets. The area
 #   codes vary in length but always begin with 0.
     caller_area_code = record[0]
     receiver = record[1]
-    
-    if caller_area_code.startswith('(080)') != -1:
-      
+    if caller_area_code.startswith('(080)') != -1: #so Bangalore numbers have the form (080)xxxxxxx.)
 
+#  - Fixed lines start with an area code enclosed in brackets. The area
+#    codes vary in length but always begin with 0.
+      if receiver.startswith('(0') != -1:
+        print(receiver)
+#  - Mobile numbers have no parentheses, but have a space in the middle
+#    of the number to help readability. The prefix of a mobile number
+#    is its first four digits, and they always start with 7, 8 or 9.
+      elif 
+
+
+
+#  - Telemarketers' numbers have no parentheses or space, but they start
+#    with the area code 140.
       #if receiver.startswith(0:)
         #elif  ~~ = = "140":
         # codes.append("140")

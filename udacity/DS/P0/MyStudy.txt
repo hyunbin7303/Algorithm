@@ -1,0 +1,9 @@
+http://index-of.es/Varios-2/Data%20Structures%20and%20Algorithms%20in%20Python.pdf
+In general, the running time of an algorithm or data strcture operation increases
+with the input size, although it may also vary for different inputs of the same size.
+
+Also, the running time is affected by the hardware engiornment in which the algorithm is implemented and executed. 
+
+
+Because we are interested in the genneral dependence of running time on the size of the strcture of the input,
+we should perform independent experiments on many different test inputs of various sizes. 

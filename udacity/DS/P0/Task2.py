@@ -20,37 +20,29 @@ Print a message:
 September 2016.".
 """
 
-# telephone number - in the text.csv file?
-## longest time... 
-longestDur = 0
-phoneNum =''
-totalTime = 0
 
+
+caller = ''
+longest_time = 0
+phoneDics ={}
 for i in calls:
-    if int(i[3]) > longestDur:
-        longestDur =int(i[3])
-        phoneNum = i[0]
-
-print(phoneNum, 'spent the longest time,', longestDur, 'on the phone during September 2016.')
-    
-
-dicts = {}
-for re in calls:
-    if re[0] not in dicts:
-        dicts[re[0]] = int(re[3])
+    phoneNum = i[0]
+    phoneReceive = i[1]
+    time = int(i[3])
+    if phoneNum not in phoneDics:
+        phoneDics[phoneNum] = time
     else:
-        dicts[re[0]] += int(re[3])
-    if re[1] not in dicts:
-        dicts[re[1]] = int(re[3])
+        phoneDics[phoneNum] += time
+
+    if phoneReceive not in phoneDics:
+        phoneDics[phoneReceive] = time
     else:
-        dicts[re[1]] += int(re[3])
+        phoneDics[phoneReceive] += time
 
-longest_caller = max(dicts, key =dicts.get)
-longest_duration = max(dicts.values())
-
-print(longest_caller, 'spent the longest time,', longest_duration, 'on the phone during September 2016.')
-    
-
+caller = max(phoneDics, key =phoneDics.get)   
+longest_time = phoneDics[caller]
+print(caller,'spent the longest time,', longest_time, 'on the phone during September 2016.')
+   
 
 # Calcualate Big O
 # perform a runtime analysis (Worst case BigO notation)

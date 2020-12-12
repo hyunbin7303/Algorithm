@@ -7,24 +7,24 @@ namespace JobInterviewPrepare.Data_Strcuture.LinkedList_Questions
     public class DetectCycle
     {
 
-        //public void CreateCycle()
-        //{
-        //    Node cur = head;
-        //    while (cur.next != null)
-        //    {
-        //        cur = cur.next;
-        //    }
-        //    cur.next = head;
-        //}
+        public void CreateCycle()
+        {
+            Node cur = head;
+            while (cur.next != null)
+            {
+                cur = cur.next;
+            }
+            cur.next = head;
+        }
 
 
         //// Given a linked list, check if the ll has loop or not.
-    
+
         //public bool DetectCycleInLL()
         //{
         //    Node lag = head;
         //}
-    
+
     }
     // Solution : Use Hasing.
     // Traverse the list one by one and keep putting the node addresses in a hash table.

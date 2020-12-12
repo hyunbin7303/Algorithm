@@ -32,10 +32,44 @@ Print the answer as part of a message:
 "The numbers called by people in Bangalore have codes:"
  <list of codes>
 The list of codes should be print out one per line in lexicographic order with no duplicates.
+"""
+
+codes_list = []
+
+def called_by_bangalore(alldata):
+  for record in alldata:
+
+    caller_area_code = record[0]
+    receiver = record[1]
+    
+    if caller_area_code.startswith('(080)') != -1:
+      
+      if receiver.startswith('(0') == True:
+        endindex = receiver.find(')')
+        areacode = receiver[1:endindex]
+        codes_list.append(areacode)
+
+      if receiver.startswith('140') == True:
+        codes_list.append("140")
+
+      if '7' in receiver[0] or '8' in receiver[0] or '9' in receiver[0]:
+        codes_list.append(receiver[0:4])
 
 
+  codes_list.sort()
 
+  result =[]
+  for i in codes_list:
+    if i not in result:
+      result.append(i)
 
+  print("The numbers called by people in Bangalore have codes:")
+  for i in result:
+    print(i)
+
+called_by_bangalore(calls)
+# Both these sorting methods have a wrost-case time-complexity of O(n log n ) . 
+"""
 Part B: What percentage of calls from fixed lines in Bangalore are made
 to fixed lines also in Bangalore? In other words, of all the calls made
 from a number starting with "(080)", what percentage of these calls
@@ -46,44 +80,29 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+caller=""
+receiver = ""
+totalnum_calls = 0
+Bangalore_calls = 0
+def percent_check(alldata):
 
 
-codes_list = []
+  for i in alldata:
 
-i = 0
-def testFunc(alldata):
-  for record in alldata:
+    if caller.startswith('(080)') == True:
+      totalnum_calls+=1
+      if receiver.startswith('(080)') == True:
+        Bangalore_calls+=1
 
-# - Fixed lines start with an area code enclosed in brackets. The area
-#   codes vary in length but always begin with 0.
-    caller_area_code = record[0]
-    receiver = record[1]
-    
-    if caller_area_code.startswith('(080)') != -1:
-      
-
-      #if receiver.startswith(0:)
-        #elif  ~~ = = "140":
-        # codes.append("140")
+    result = Bangalore_calls/totalnum_calls * 100
+    round_result = round(result,2)
+    print(round_result, " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore")
 
 
+# ITERATE THROUGH THE CALLS...
 
+#THE denominator will be the number of times a caller(col 1) is from bangalore.
 
+# The numerator will be the number of times both the caller and receiver (column 1 and col 2) ar from Bangalore.
 
-
-
-#- Mobile numbers have no parentheses, but have a space in the middle of the number to help readability. The prefix of a mobile number
-#  is its first four digits, and they always start with 7, 8 or 9.
-# - Telemarketers' numbers have no parentheses or space, but they start
-#   with the area code 140.
-
-
-
-# The list() function will convert the set into a list.
-# can use in-built methods sorted() or list.sort() for sorting which are the implementation of Timesort and SampleSort, respectivtely.
-# Lexicographic order = the numbers need to be sorted (ascending order).
-# Both these sorting methods have a wrost-case time-complexity of O(n log n ) . 
-
-#https://docs.python.org/3/howto/sorting.html
-
-
+# Answer should be between 23.00 to 26.00.

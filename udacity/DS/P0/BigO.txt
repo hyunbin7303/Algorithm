@@ -1,0 +1,30 @@
+For the analysis text file, 
+1. you need to first understand the notation of each function you use in your code,
+ then you analyse the time complexity getting the worst case notation.
+For instance, if your code is looking for a specific value i.e max, min, first, last etc. 
+Then the time is independent on the size of the list or any container, so the notation is O(1),
+ and the code also has a for loop which iterates over all the items of the list,
+ the time is dependent on the size of the list, so it has a notation of O(n).
+------------------------
+So, the overall worst-case notation of that code is O(n) since O(n) is more time expensive.
+That's exactly what you should do for all the tasks.
+
+# Task0.py
+Notation of function I use in code:
+Analyse the tiem complexity getting the wrost case notation.
+
+#Task1.py
+
+
+#Task2.py
+* using max algorithm
+Maxumum finding algorithm....... how many times we need update the current the biggest value.
+In the case of Worst, if the data is given to us in increasing order, the biggest value is reassigned n-1 times.
+But what if the input is
+
+
+#Task3.py
+
+#https://docs.python.org/3/howto/sorting.html
+
+#Task4.py

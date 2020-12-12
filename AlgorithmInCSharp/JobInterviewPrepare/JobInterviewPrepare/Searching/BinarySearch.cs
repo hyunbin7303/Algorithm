@@ -41,5 +41,20 @@
                 return BinarySearchTesting(arr, mid, r, target);
             }
         }
+
+
+
+        // find min and max value in Binary Search tree.
+        // last left child node of a subtree beginning with the left child of the root node. On the other hand, the largest value in a BST
+        // is found at the last right child node of a subtree beginning with the right child of the root node. 
+        public int BST_FindMinAndMax(int[] arr, int l, int r)
+        {
+            return 0;
+        }
+
+
+
+        //https://www.csharpstar.com/csharp-program-to-find-min-and-max-in-binary-search-tree/
+        //https://www.csharpstar.com/csharp-program-to-count-number-of-words-in-a-string/
     }
 }

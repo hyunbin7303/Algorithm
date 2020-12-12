@@ -22,3 +22,10 @@ Print messages:
 print("First record of texts, ",texts[0][0], "texts ", texts[0][1], " at time ", texts[0][2])
 lastIndex = len(calls)-1
 print("Last record of calls, ",calls[lastIndex][0], "calls ", calls[lastIndex][1], " at time ", calls[lastIndex][2],", lasting ", calls[lastIndex][3]," seconds")
+
+
+# constant - time operations O(1) in all case.
+# Wrost Case - there is no specific worst case for this since it will always execute in the same time (or space) regardless of size of the input.
+
+ 
+

@@ -28,3 +28,11 @@ But what if the input is
 #https://docs.python.org/3/howto/sorting.html
 
 #Task4.py
+
+
+
+
+for eg:
+
+I implemeted a binary search as it was cutting the array in half with every iteration my run time complexity is big O(log n).
+

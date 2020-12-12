@@ -24,31 +24,26 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 
-
-* Possible telemarketers are numbers that
-* Make outgoing calls.
-
 """
 
-list_num = []
-def possible_telemarketers(codes):
-    print('possible telemarket method.')
-    for i in codes:
-        print(i)
-   #     if i[0 ]
-    
-    # numbers that make outgoing calls but never send texts.
-    
-    #receiver texts or receive incoming calls?
-
-    
 
 
-    # Print a message:
-    print('These numbers could be telemarketers: ')
-    for number in list_num:
-        print(number)
+outgoing_list = set()
+nontele_list = set()
+def get_telemarketer(calls):
+    for i in calls:
+        outgoing_list.add(i[0])
+        nontele_list.add(i[1])
 
 
-#  for values in sorted(set(codes)):
-#    print(values)
+get_telemarketer(calls)
+get_telemarketer(texts)       
+print('total outgoing list: ', len(outgoing_list))
+print('total nontele_list: ', len(nontele_list))
+
+tele = nontele_list.difference(outgoing_list)
+tele = sorted(tele)
+
+print("These numbers could be telemarketers: ")
+for i in tele:
+    print('    ',i)

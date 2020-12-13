@@ -44,12 +44,4 @@ longest_time = phoneDics[caller]
 print(caller,'spent the longest time,', longest_time, 'on the phone during September 2016.')
    
 
-# Calcualate Big O
-# perform a runtime analysis (Worst case BigO notation)
-#Dcoumjent this for each problem and include this in your submission.
 
-
-
-# Check again Rubric and Submit.
-# Use the Rubric to check your work before submission.
-# 

@@ -34,7 +34,7 @@ Print the answer as part of a message:
 The list of codes should be print out one per line in lexicographic order with no duplicates.
 """
 
-codes_list = []
+codes_list = set()
 
 def called_by_bangalore(alldata):
   for record in alldata:
@@ -47,25 +47,20 @@ def called_by_bangalore(alldata):
       if receiver.startswith('(0') == True:
         endindex = receiver.find(')')
         areacode = receiver[1:endindex]
-        codes_list.append(areacode)
+        codes_list.add(areacode)
 
       if receiver.startswith('140') == True:
-        codes_list.append("140")
+        codes_list.add("140")
 
       if '7' in receiver[0] or '8' in receiver[0] or '9' in receiver[0]:
-        codes_list.append(receiver[0:4])
+        codes_list.add(receiver[0:4])
 
 
-  codes_list.sort()
-
-  result =[]
-  for i in codes_list:
-    if i not in result:
-      result.append(i)
-
+  result = sorted(codes_list)
   print("The numbers called by people in Bangalore have codes:")
   for i in result:
     print(i)
+
 
 called_by_bangalore(calls)
 # Both these sorting methods have a wrost-case time-complexity of O(n log n ) . 
@@ -80,24 +75,25 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
-caller=""
-receiver = ""
-totalnum_calls = 0
-Bangalore_calls = 0
+
 def percent_check(alldata):
-
-
+  totalnum_calls = 0
+  Bangalore_calls = 0
   for i in alldata:
 
-    if caller.startswith('(080)') == True:
+    if i[0].startswith('(080)') == True: 
+
       totalnum_calls+=1
-      if receiver.startswith('(080)') == True:
+      if i[1].startswith('(080)') == True:
         Bangalore_calls+=1
 
-    result = Bangalore_calls/totalnum_calls * 100
-    round_result = round(result,2)
-    print(round_result, " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore")
+  result = (Bangalore_calls/totalnum_calls) * 100.0
+  round_result = round(result,2)
+  return round_result
 
+
+round_result = percent_check(calls)
+print(round_result, " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore")
 
 # ITERATE THROUGH THE CALLS...
 

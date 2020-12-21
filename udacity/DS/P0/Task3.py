@@ -42,7 +42,7 @@ def called_by_bangalore(alldata):
     caller_area_code = record[0]
     receiver = record[1]
     
-    if caller_area_code.startswith('(080)') != -1:
+    if caller_area_code.startswith('(080)') != False:
       
       if receiver.startswith('(0') == True:
         endindex = receiver.find(')')
@@ -94,11 +94,3 @@ def percent_check(alldata):
 
 round_result = percent_check(calls)
 print(round_result, " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore")
-
-# ITERATE THROUGH THE CALLS...
-
-#THE denominator will be the number of times a caller(col 1) is from bangalore.
-
-# The numerator will be the number of times both the caller and receiver (column 1 and col 2) ar from Bangalore.
-
-# Answer should be between 23.00 to 26.00.

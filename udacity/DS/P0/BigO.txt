@@ -7,21 +7,12 @@
     Wrost Case - there is no specific worst case for this since it will always execute in the same time (or space) regardless of size of the input.
  
 #Task1.py
-    Time complexity - O(n) in most cases.
+    Time complexity - O(1) on average, beceause it's using the set.
     Wrost case - O(n) same with general case since it requires to search from the beginning anyway(even if there are unique phone number at the end of the input)
 
 #Task2.py
-    Time complexity - O(n^2) in most cases.
-    
-    For this task, I've used Dictionary and store data into dictionary through for loop, which requires iteration from the beginning to the end of calls.
-    At the same time, I also used "Not in" which requires to search from the start to the end of dictionary.
-    So, it is O(n^2) in the most cases.
-    I also used max statement, which iterate through the dictionary one time. for this specific task,
-    the order is not an ascending order so I would say that the most cases are O(n).
-    
-    Conclusion:
-    Worst case - O(n^2), same with most cases.    
-
+    Time complexity - O(n) in most cases.
+    Worst case - O(n).
 
 #Task3.py
 

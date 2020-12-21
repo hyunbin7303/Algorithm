@@ -30,18 +30,24 @@ The list of numbers should be print out one per line in lexicographic order with
 
 outgoing_list = set()
 nontele_list = set()
-def get_allinfo(calls):
+
+def get_outgoingCalls(calls):
     for i in calls:
         outgoing_list.add(i[0])
+
+def get_nontele(calls, texts):
+    for i in calls:
+        nontele_list.add(i[1])
+    
+    for i in texts:
+        nontele_list.add(i[0])
         nontele_list.add(i[1])
 
 
-get_allinfo(calls)
-get_allinfo(texts)       
-print('total outgoing list: ', len(outgoing_list))
-print('total nontele_list: ', len(nontele_list))
+get_outgoingCalls(calls)
+get_nontele(calls,texts)       
 
-tele = nontele_list.difference(outgoing_list)
+tele = outgoing_list.difference(nontele_list)
 tele = sorted(tele)
 
 print("These numbers could be telemarketers: ")

@@ -1,0 +1,23 @@
+LRU cache is a cache removal algorithm where the least recently used items in a cache are removed to allocate space for new additions.
+The least r ecently used items reside at the front of the cache while newer items are found at the end.
+
+Caching is the process of storing away data gotten from a tasking computation so that when that data is needed again, the system or application
+doesn't not make new computations or requests. 
+
+
+1. Fast item lookup.
+2. Constant time insertion and deletion.
+3. Ordered storage.
+
+
+[Prerequisite Data Strctures]
+
+1. Hashmap. will store each node item mapped to a unique node key so we'll have constant amortized time access to that node item.
+
+We need Doubly LinkedList.
+In a Doubly linkedList, nodes are connected by pointers to the previous and next nodes.
+This will allow us to insert and delete items in O(1) or constant time because all we need to do is to manipulate the next and previous pointers as you will see later on.
+Our data is also ordered as a plus. 
+
+
+

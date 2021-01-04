@@ -9,12 +9,12 @@ namespace JobInterviewPrepare.Data_Strcuture.LinkedList_Questions
 
         public void CreateCycle()
         {
-            Node cur = head;
-            while (cur.next != null)
-            {
-                cur = cur.next;
-            }
-            cur.next = head;
+            //Node cur = head;
+            //while (cur.next != null)
+            //{
+            //    cur = cur.next;
+            //}
+            //cur.next = head;
         }
 
 

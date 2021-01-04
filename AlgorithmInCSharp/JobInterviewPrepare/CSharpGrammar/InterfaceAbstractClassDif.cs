@@ -12,8 +12,10 @@ namespace CSharpGrammar
         // In a abstract class, we can have some concrete methods.
         // may have private.
         // An abstract class is never intended to be instantiated directly.
-
-
-
     }
+    public abstract class Person
+    {
+        public abstract void testing();
+    }
+
 }

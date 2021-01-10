@@ -53,8 +53,6 @@ class LinkedList:
 
 def union(llist_1, llist_2):
     # Your Solution Here
-    # Store the data in the Dictionary . [key value] pair.
-
     if llist_1 is None or llist_2 is None:
         return None
     

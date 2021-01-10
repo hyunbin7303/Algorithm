@@ -3,7 +3,7 @@ import hashlib
 from datetime import datetime
 
 class Block:
-    def __init__(self, timestamp, data, previous_hash):
+    def __init__(self, data, previous_hash):
       self.timestamp = datetime.now()
       self.data = data
       self.previous_hash = previous_hash
@@ -26,42 +26,62 @@ class BlockChain:
     def __init__(self):
         self.genesis_block = None
         self.last_block = None
-        self.numBlock = 0
 
     def add_block(self, block):
         if self.genesis_block is None:
             self.genesis_block = block
             self.genesis_block.previous_hash = None
             self.last_block = self.genesis_block
-            print('Genesis Block : ', self.genesis_block.hash)
 
         else:
             cur = self.genesis_block
             while cur.next:
                 cur = cur.next
 
-            print(cur.hash)
             block.previous_hash = cur.hash
             cur.next = block
 
     def display_all_blocks(self):
-        initBlock = self.genesis_block
-        while initBlock != None:
-            print('block : ', initBlock.hash)
-            initBlock = initBlock.next
+        curBlock = self.genesis_block
+        while curBlock != None:
+            print(curBlock.timestamp, ': ','block : ', curBlock.hash)
+            curBlock = curBlock.next
 
-# initial block or first block
-blockchain = BlockChain()
 
-firstBlock = Block('2021-01-06', 'kevin', None)
+
+
+# Normal Testing ------
+blockchain = BlockChain() 
+
+firstBlock = Block('kevin', None)
 blockchain.add_block(firstBlock)
 
-b2 = Block('2021-01-07', 'julio', firstBlock.get_hash())
+b2 = Block( 'julio', firstBlock.get_hash())
 blockchain.add_block(b2)
 
+b3 = Block( 'Udacity', b2.get_hash())
+blockchain.add_block(b3)
 
-# b3 = Block('2021-01-08', 30, b2.get_hash())
-#blockchain.add_block(b3)
+b4 = Block('This is good', b3.get_hash())
+blockchain.add_block(b4)
 
 print("--------------------")
 blockchain.display_all_blocks()
+##########################################
+
+
+# Exception Testing
+blockchain = BlockChain() 
+
+firstBlock = Block('kevin', None)
+blockchain.add_block(firstBlock)
+
+b2 = Block( 'julio', firstBlock.get_hash())
+blockchain.add_block(b2)
+
+b3 = Block( 'Udacity', b2.get_hash())
+blockchain.add_block(b3)
+
+b4 = Block(1111, b3.get_hash())
+blockchain.add_block(b4)
+# Display in object has no attribute encode error.

@@ -1,30 +1,15 @@
-# Huffman coding
-# Data Compression
-# A data compression algorithm reduces the amount of memory (bits) required to represent a message.
-# Assume that we have a string message [ ] comprising of 25 characters to be encoded.
-
-
-# Hufmman coding assigns codes to characters such that the length of the code depends on the relative frequency or weight of the corresponding characters. 
-# Huffman codes are of variable-length, and prefix-free (no code is prefix of any other). 
-# Any prefix-free binary code can be visualized as a binary tree with the encoded characters stored at the leaves. 
-
 import sys
-
 
 class Node:
     def __init__(self, left,right):
         self.left = left
         self.right = right
-
     def children(self):
         return (self.left, self.right)
-
     def nodes(self):
         return (self.left, self.right)
 
 
-
-# Let's finish this one.
 def build_huffmantree(data):
     dic_char = {}
     # determine the frequency of each character in the message.
@@ -37,50 +22,72 @@ def build_huffmantree(data):
     # Each row in the table above can be represented as a node having a character, frequency, left child and right child.
     # repeatedly require to pop-out the node having the lowest frequency. Therefore, build and sort a list of nodes in the order lowest to highest frequencies.
     sortedDic = sorted(dic_char.items(), key=lambda x: x[1])
-    # Pop out two nodes with the minimum frequency from the priority queue created in the above step?
-    nodes = sortedDic
-    while len(nodes) > 1:
-        (key1, c1) = nodes[0]
-        (key2, c2) = nodes[1]
-        nodes = nodes[2:]
+    curNodes = sortedDic
+    while len(curNodes) > 1:
+        # Pop out two nodes with the minimum frequency from the priority queue created in the above step
+        (key1, c1) = curNodes[0]
+        (key2, c2) = curNodes[1]
+        curNodes = curNodes[2:]
         node = Node(key1, key2)
-        nodes.append((node, c1 + c2))
-        nodes = sorted(nodes, key=lambda x: x[1])
-    return nodes
+        curNodes.append((node, c1+c2))
+        curNodes = sorted(curNodes, key=lambda x: x[1])
+    return curNodes, dic_char
 
-def encoding_recursive(nodes, direction, strcheck):
-    if type(nodes) is str:
-        return {nodes: strcheck}
-    (l, r) = nodes.children()
+def encoding_recursive(node, left=True, binString=''):
+    if type(node) is str:
+        return {node: binString}
+    (l, r) = node.children()
     d = dict()
-    d.update(encoding_recursive(l, True, strcheck + '0'))
-    d.update(encoding_recursive(r, False, strcheck + '1'))
-
+    d.update(encoding_recursive(l, True, binString + '0'))
+    d.update(encoding_recursive(r, False, binString + '1'))
+    return d
 
 def huffman_encoding(data):
-    nodes =build_huffmantree(data)
-    getit = encoding_recursive(nodes[0][0], True, '')
-
-
-
-    pass
+    nodes, dic_tree =build_huffmantree(data)
+    encodeList = encoding_recursive(nodes[0][0], True, '')
+    encodeStr = ''
+    for key, value in dic_tree.items():
+        encodeStr += encodeList[key] * value
+    return (encodeStr,nodes)
 
 def huffman_decoding(data,tree):
-    pass
+    root = tree[0][0]
+    rest_data = data
+    wholeStr = ''
+    while rest_data:
+        check, rest_data  = decoding_recursive(rest_data,root, '')
+        wholeStr += check
+
+    return wholeStr
+
+def decoding_recursive(data, tree, input):
+    decoded_str = ''
+    if type(tree) is str:
+        decoded_str += tree
+        return (decoded_str, data)
+       
+    if data[0] == '0':
+        tree = tree.left
+    else:
+        tree =tree.right
+
+    return decoding_recursive(data[1:], tree, decoded_str)
+
+
 
 if __name__ == "__main__":
     codes = {}
-    a_great_sentence = "The bird is the word"
-
+    #a_great_sentence = "The bird is the word"
+    a_great_sentence = "ABCDEF"
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
     print ("The content of the data is: {}\n".format(a_great_sentence))
 
     encoded_data, tree = huffman_encoding(a_great_sentence)
 
-    # print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    # print ("The content of the encoded data is: {}\n".format(encoded_data))
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data))
 
-    # decoded_data = huffman_decoding(encoded_data, tree)
+    decoded_data = huffman_decoding(encoded_data, tree)
 
-    # print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    # print ("The content of the encoded data is: {}\n".format(decoded_data))
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print ("The content of the encoded data is: {}\n".format(decoded_data))

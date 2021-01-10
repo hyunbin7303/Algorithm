@@ -63,7 +63,7 @@ class LRU_Cache(object):
             if self.size >=self.size_cache:
                 # Remove the oldest item.
                 deletenode =self.head.next
-                print('size is higher than total size. Delete the least used node key : ', deletenode.key[0])
+                #print('size is higher than total size. Delete the least used node key : ', deletenode.key[0])
 
                 del self.dictCache[deletenode.key[0]]
                 self.delete_node(deletenode)
@@ -83,24 +83,52 @@ class LRU_Cache(object):
             node = node.next    
 
 
+def normal_test():
+    our_cache = LRU_Cache(5)
+    our_cache.set(1, 1)
+    our_cache.set(2, 2)
+    our_cache.set(3, 3)
+    our_cache.set(4, 4)
+
+    # 
+    print(our_cache.get(1))       # returns 1
+    print(our_cache.get(2))       # returns 2
+    print(our_cache.get(9))      # returns -1 because 9 is not present in the cache
+    our_cache.set(5, 5)          
+    our_cache.set(6, 6)          
+    our_cache.set(9, 9)          
+
+    print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
 
+def edge_test1():
+    our_cache = LRU_Cache(5)
+    our_cache.set(1, 1)
+    our_cache.set(2, 2)
+    our_cache.set(1,10000)# Inserting the same key.
 
+def edge_test2():
+    our_cache = LRU_Cache(5)
+    our_cache.set(1, 1)
+    our_cache.set(2, 2)
+    our_cache.set(3, 3)
+    our_cache.set(4, 4)
+    our_cache.set(5, 5)
+    our_cache.set(6, 6)
+    our_cache.set(7, 6)
+    our_cache.set(8, 6)
+    our_cache.set(9, 61111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111222222222222222222222222222222)
 
-our_cache = LRU_Cache(5)
-our_cache.set(1, 1)
-our_cache.set(2, 2)
-our_cache.set(3, 3)
-our_cache.set(4, 4)
+    # Use this for testing purpose.
+    our_cache.traverse(our_cache.head)
 
-print(our_cache.get(1))       # returns 1
-print(our_cache.get(2))       # returns 2
-print(our_cache.get(9))      # returns -1 because 9 is not present in the cache
-our_cache.set(5, 5) 
-our_cache.set(6, 6)
-our_cache.set(9, 9)
+#On the next line, comment out the output you expect to see from that function call. 
+# Test Case 1 - Normal Testing
+#normal_test()
 
+# Test Case 2 - Edge case Testing : # Inserting the same key.
+#edge_test1()
 
-print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+# Test Case 3 - Edge case Testing : unusually large values
+edge_test2()
 
-our_cache.traverse(our_cache.head)

@@ -4,11 +4,10 @@
 
 
 ## Locally save and call this file ex.py ##
-
 # Code to demonstrate the use of some of the OS modules in python
 
 import os
-origin_path = "C:\\Users\\Hyunbin\\Desktop\\"
+origin_path = "C:\\testdir\\"
 
 def find_files(suffix, path):
     """
@@ -30,14 +29,14 @@ def find_files(suffix, path):
     # This could be a string or could also be a tuple of suffixes to look for.
     getall = os.listdir(path)
     for f in getall:
-        check = os.path.join(origin_path, path, f)
-        if os.path.isfile(check):
-            if check.endswith(suffix):
-                list_path.append(check)
+        path_get = os.path.join(path, path, f)
+        if os.path.isfile(path_get):
+            if path_get.endswith(suffix):
+                list_path.append(path_get)
 
         else:
             path_generate = os.path.join(path, f, "")
-            store = find_files(".c", path_generate)
+            store = find_files(suffix, path_generate)
             for x in store:
                 list_path.append(x)
    
@@ -46,10 +45,27 @@ def find_files(suffix, path):
 
 
 
+# Normal testing 
+# origin_path = "C:\\testdir\\"
+# check = find_files(".c",origin_path)
+# for i in check:
+#     print(i)
+
+# Normal testing - different extension.
+# origin_path = "C:\\testdir\\"
+# check = find_files(".h",origin_path)
+# for i in check:
+#     print(i)
 
 
-path_generate = os.path.join(origin_path, "testdir", "testdir")
-check = find_files(".c",path_generate)
-for i in check:
-    print(i)
+# Edge testing - invalid path.
+# origin_path = "C:\\testdir\\testdiraaa"
+# check = find_files(".c",origin_path)
+# for i in check:
+#     print(i)
 
+#Edge testing - invalid extension
+# origin_path = "C:\\testdir\\testdiraaa"
+# check = find_files(".ca",origin_path)
+# for i in check:
+#     print(i)

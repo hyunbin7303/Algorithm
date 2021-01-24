@@ -1,5 +1,4 @@
 # Union and Intersection of Two Linked Lists
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -7,7 +6,6 @@ class Node:
 
     def __repr__(self):
         return str(self.value)
-
 
 class LinkedList:
     def __init__(self):
@@ -49,8 +47,6 @@ class LinkedList:
             print("display : ", cur.value)
             cur = cur.next
 
-
-
 def union(llist_1, llist_2):
     # Your Solution Here
     if llist_1 is None or llist_2 is None:
@@ -71,7 +67,6 @@ def union(llist_1, llist_2):
     for i in storeSet:
         resultLL.append(i)
     return resultLL
-
 
 def intersection(llist_1, llist_2):
 
@@ -97,36 +92,97 @@ def intersection(llist_1, llist_2):
     return resultLL
 
 
+
 # Test case 1
+def testcase1():
+    linked_list_1 = LinkedList()
+    linked_list_2 = LinkedList()
+    element_1 = [3,2,4,35,6,65,6,4,3,21]
+    element_2 = [6,32,4,9,6,1,11,21,1]
 
-linked_list_1 = LinkedList()
-linked_list_2 = LinkedList()
+    for i in element_1:
+        linked_list_1.append(i)
 
-element_1 = [3,2,4,35,6,65,6,4,3,21]
-element_2 = [6,32,4,9,6,1,11,21,1]
+    for i in element_2:
+        linked_list_2.append(i)
 
-for i in element_1:
-    linked_list_1.append(i)
-
-for i in element_2:
-    linked_list_2.append(i)
-
-print (union(linked_list_1,linked_list_2))
-print (intersection(linked_list_1,linked_list_2))
+    print (union(linked_list_1,linked_list_2))
+    print (intersection(linked_list_1,linked_list_2))
 
 # Test case 2
+def testcase2():
+    linked_list_3 = LinkedList()
+    linked_list_4 = LinkedList()
 
-linked_list_3 = LinkedList()
-linked_list_4 = LinkedList()
+    element_1 = [3,2,4,35,6,65,6,4,3,23]
+    element_2 = [1,7,8,9,11,21,1]
 
-element_1 = [3,2,4,35,6,65,6,4,3,23]
-element_2 = [1,7,8,9,11,21,1]
+    for i in element_1:
+        linked_list_3.append(i)
 
-for i in element_1:
-    linked_list_3.append(i)
+    for i in element_2:
+        linked_list_4.append(i)
 
-for i in element_2:
-    linked_list_4.append(i)
+    print (union(linked_list_3,linked_list_4))
+    print (intersection(linked_list_3,linked_list_4))
 
-print (union(linked_list_3,linked_list_4))
-print (intersection(linked_list_3,linked_list_4))
+# Test Case - Edge case cases 1 : Don't have any element in one of linked list.
+def testcase3():
+    linked_list_3 = LinkedList()
+    linked_list_4 = LinkedList()
+
+    element_1 = []
+    element_2 = [1,7,8,9,11,21,1]
+
+    for i in element_1:
+        linked_list_3.append(i)
+
+    for i in element_2:
+        linked_list_4.append(i)
+
+    print ('union display : ', union(linked_list_3,linked_list_4))
+    print ('Intersection display: ', intersection(linked_list_3,linked_list_4))
+
+# Test Case - EdgeCorner test cases.
+def testcase4():
+    linked_list_1 = LinkedList()
+    linked_list_2 = LinkedList()
+    element_1 = [3,2,4,35,6,65,6,4,3,21, 2.5]
+    element_2 = [-10000000000000000000000000,2.5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+
+    for i in element_1:
+        linked_list_1.append(i)
+
+    for i in element_2:
+        linked_list_2.append(i)
+
+    print (union(linked_list_1,linked_list_2))
+    print (intersection(linked_list_1,linked_list_2))
+
+
+# Case for both sets are empty and uncomment other test cases.
+def testcase5():
+    linked_list_1 = LinkedList()
+    linked_list_2 = LinkedList()
+    element_1 = []
+    element_2 = []
+
+    for i in element_1:
+        linked_list_1.append(i)
+
+    for i in element_2:
+        linked_list_2.append(i)
+
+    print (union(linked_list_1,linked_list_2))
+    print (intersection(linked_list_1,linked_list_2))
+
+print('Test case 1 ---------')
+testcase1()
+print('Test case 2 ---------')
+testcase2()
+print('Test case 3 ---------')
+testcase3()
+print('Test case 4 ---------')
+testcase4()
+print('Test case 5 ---------')
+testcase5()

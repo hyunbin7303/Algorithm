@@ -20,7 +20,7 @@ class LRU_Cache(object):
         self.head.next = self.tail
         self.tail.prev = self.head        
         self.size = 0
-
+ 
     def get_currentsize(self):
         return self.size
 
@@ -45,7 +45,7 @@ class LRU_Cache(object):
             node = self.dictCache[key]
             self.delete_node(node)
             self.move_to_end(node)
-            return key
+            return node.value
         else:
             return -1
 
@@ -53,10 +53,17 @@ class LRU_Cache(object):
         # To add an item to our cache we need a unique key to grant us constant access to the node we are about to add,
         # and also the value of the node.
         # Set the value if the key is not present in the cache.
+        if self.size_cache == 0:
+            print('The size of the cache is 0. Cannot insert value.')
+            return
+
         if key in self.dictCache:
             print('key exists in the dictionary.')
             node = self.dictCache[key]
             self.delete_node(node)
+
+            if self.dictCache[key] != value:
+                node.value = value
             self.move_to_end(node)
 
         else: # not exist so add in the Dictionary.
@@ -77,10 +84,11 @@ class LRU_Cache(object):
             self.size+= 1
 
 #if the entry is found in the cache, it is known as a cache hit. If, however, the entry is not found, it is known as a cache miss.
-    def traverse(self, node):
-        while(node != None):
-            print(node.value)
-            node = node.next    
+    def traverse(self):
+        cur = self.head.next
+        while(cur != None):
+            print(cur.value)
+            cur = cur.next    
 
 
 def normal_test():
@@ -100,12 +108,25 @@ def normal_test():
 
     print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
+def normal_test2():
+    our_cache=LRU_Cache(3)
+    our_cache.set(1,1)
+    our_cache.set(2,2)
+    our_cache.set(3,3)
+    our_cache.set(4,4)
+    our_cache.get(4)  
+    our_cache.get(1)  
+    our_cache.set(2,4) 
+    print(our_cache.get(2))   
+    our_cache.traverse()
 
 def edge_test1():
     our_cache = LRU_Cache(5)
     our_cache.set(1, 1)
     our_cache.set(2, 2)
     our_cache.set(1,10000)# Inserting the same key.
+    our_cache.set(1,11000)# Inserting the same key.
+    our_cache.set(1,12000)# Inserting the same key.
 
 def edge_test2():
     our_cache = LRU_Cache(5)
@@ -122,13 +143,45 @@ def edge_test2():
     # Use this for testing purpose.
     our_cache.traverse(our_cache.head)
 
-#On the next line, comment out the output you expect to see from that function call. 
+# getting invalid key value. Minus value.
+def edge_test3_minus_value():
+    our_cache = LRU_Cache(3)
+    our_cache.set(-100, 'haha')
+    our_cache.set(-20, 'nana')
+    our_cache.set(30, 'qqqq')
+    our_cache.set(-1, 'qqqq')
+    print(our_cache.get(-100))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+    our_cache.traverse()
+
+def edge_test4_invalidinput():
+    our_cache = LRU_Cache(0)
+    our_cache.set(1, 'haha')
+
+
+
 # Test Case 1 - Normal Testing
 #normal_test()
+
+# Test case 2 - Normal Testing
+normal_test2()# Expected Value = 4 Your Output=2
+
 
 # Test Case 2 - Edge case Testing : # Inserting the same key.
 #edge_test1()
 
 # Test Case 3 - Edge case Testing : unusually large values
-edge_test2()
+#edge_test2()
 
+# Test case 4 -Adding cases where the input is NULL, negative, or high capacity.
+edge_test3_minus_value() 
+
+# Test case 5 - Capacity is 0
+edge_test4_invalidinput()
+
+
+
+
+    # You made great work so far on your code and test cases.
+    # But it is required to add at least two edge cases, you can add test cases where the input is NULL, negative, or high capacity.
+    # Ex: our_cache = LRU_Cache(0).
+    # Browse this link to learn more about the edge cases.

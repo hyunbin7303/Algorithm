@@ -27,6 +27,11 @@ def find_files(suffix, path):
     """
     list_path = []
     # This could be a string or could also be a tuple of suffixes to look for.
+    if os.path.isdir(path)== False:
+        print("The path : {} not exist. ".format(path))
+        return
+
+
     getall = os.listdir(path)
     for f in getall:
         path_get = os.path.join(path, path, f)
@@ -45,27 +50,35 @@ def find_files(suffix, path):
 
 
 
-# Normal testing 
-# origin_path = "C:\\testdir\\"
-# check = find_files(".c",origin_path)
-# for i in check:
-#     print(i)
+print("Normal testing.")
+origin_path = "C:\\testdir\\"
+check = find_files(".c",origin_path)
+for i in check:
+    print(i)
 
-# Normal testing - different extension.
-# origin_path = "C:\\testdir\\"
-# check = find_files(".h",origin_path)
-# for i in check:
-#     print(i)
+print("Normal Testing 2 .")
+origin_path = "C:\\testdir\\"
+check = find_files(".h",origin_path)
+for i in check:
+    print(i)
 
 
-# Edge testing - invalid path.
-# origin_path = "C:\\testdir\\testdiraaa"
-# check = find_files(".c",origin_path)
-# for i in check:
-#     print(i)
+print("Edge case Testing - invalid path")
+origin_path = "C:\\testdir\\testdiraaa"
+check = find_files(".c",origin_path)
+if check == None:
+    print('Path not exist.')
+else:
+    for i in check:
+        print(i)
 
-#Edge testing - invalid extension
-# origin_path = "C:\\testdir\\testdiraaa"
-# check = find_files(".ca",origin_path)
-# for i in check:
-#     print(i)
+print("Edge testing - invalid extension")
+origin_path = "C:\\testdir\\"
+check = find_files(".ca",origin_path)
+for i in check:
+    print(i)
+
+# Suggest using an if condition such as if os.path.isdir(path).
+# os.path.isdir(path) to check whether the specified path is an existing directory or not. 
+# This method follows the symbolic link, which means if the specified path is a symbolic link pointing to a directory then the method will return True.
+# Follow this link to learn more

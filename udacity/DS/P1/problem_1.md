@@ -5,7 +5,7 @@ Secondly, it uses Doubly Linked list due to the fact that Doubly linkedlist is t
 
 Time & space efficiency. 
 
-Dictionary - using O(logN)
-DoublyLinked List -  O(N)
+For get and set operation - 
 
-So, the result can be O(logN) + O(N) = O ( N log N )
+Time complexity : O(1) because it uses hash table for finding the unique value.
+Space Complexity : O(n) because it requires to generate the size of the input.

@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPattern", "DesignPatt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpBestPractice", "CSharpBestPractice\CSharpBestPractice.csproj", "{F9B40E0B-AE2A-4E31-9568-2985447A9717}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGrammar", "CSharpGrammar\CSharpGrammar.csproj", "{143B30C1-B62C-42B8-A36F-CBB516A0956A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpGrammar", "CSharpGrammar\CSharpGrammar.csproj", "{143B30C1-B62C-42B8-A36F-CBB516A0956A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpRedisCaching", "CSharpRedisCaching\CSharpRedisCaching.csproj", "{BCA54006-D580-4100-B180-ECD7DAD11CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpRedisCaching", "CSharpRedisCaching\CSharpRedisCaching.csproj", "{BCA54006-D580-4100-B180-ECD7DAD11CA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHandling", "EventHandling\EventHandling.csproj", "{F46A2495-7CC0-45F9-932A-0C726BB896F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BCA54006-D580-4100-B180-ECD7DAD11CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA54006-D580-4100-B180-ECD7DAD11CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA54006-D580-4100-B180-ECD7DAD11CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46A2495-7CC0-45F9-932A-0C726BB896F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46A2495-7CC0-45F9-932A-0C726BB896F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46A2495-7CC0-45F9-932A-0C726BB896F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46A2495-7CC0-45F9-932A-0C726BB896F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -60,6 +60,7 @@ namespace JobInterviewPrepare.Searching
         {
             var curNode = _root;
             var result = curNode;
+            return null;
         }
 
 

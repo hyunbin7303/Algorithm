@@ -6,7 +6,7 @@ namespace CSharpGrammar
 {
     public class StringBuilderUsage
     {
-        // string is immutable. If you create string object, you can't modify it and it alway s create new object of string in memory.
+        // string is immutable. If you create string object, you can't modify it and it always create new object of string in memory.
         // stringbuilder is the mutable string type.
         // Stringbuilder perfrorms faster than string when appending multiple string values.
         // Use the Append() method to  add or append string to the stringBuilder Object. 
@@ -41,9 +41,6 @@ namespace CSharpGrammar
             Console.WriteLine("Ustring string builder to add character : " + watch.ElapsedMilliseconds);
 
         }
-        static void Main(string[] args)
-        {
-            Testing();
-        }
+
     }
 }

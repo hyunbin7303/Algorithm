@@ -1,6 +1,7 @@
 ﻿using JobInterviewPrepare.Data_Strcuture;
 using JobInterviewPrepare.LeetCode;
 using JobInterviewPrepare.Searching;
+using JobInterviewPrepare.Sorting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -167,6 +168,15 @@ namespace JobInterviewPrepare
             return true;
         }
 
+        static void QuickSortTesting()
+        {
+            int[] arr = { 10, 7, 8, 9, 1, 5 };
+            int n = arr.Length;
+            QuickSort quickSort = new QuickSort();
+            quickSort.quickSort(arr, 0, n - 1);
+
+        }
+
         // Integration Testing. 
         static void Main(string[] args)
         {
@@ -176,6 +186,9 @@ namespace JobInterviewPrepare
             //DoublyLLTesting();
             //TestFibonnaci();
             //TestFindTriplets();
+            QuickSortTesting();
+
+
         }
     }
 }

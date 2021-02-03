@@ -13,17 +13,13 @@ namespace CSharpBestPractice
         {
             var sw = new Stopwatch();
             sw.Start();
-            var primes = GetPrimeNumbers(2, 1000000);
+            //var primes = GetPrimeNumbers(2, 1000000);
 
         }
-        private 
 
     }
 }
 // With Shychronous your application will run all tasks in sequence.
-// 
 //https://medium.com/@letienthanh0212/asynchronous-and-parallel-programming-in-c-net-1e0f14e1db80
-
-
 // One of the job interview question was about What is SOLID.
 // What is ACID.

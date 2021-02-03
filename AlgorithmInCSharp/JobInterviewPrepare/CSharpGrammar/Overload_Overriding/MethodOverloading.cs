@@ -4,8 +4,9 @@ using System.Text;
 
 namespace CSharpGrammar
 {
-    class MethodOverloading
+    public class MethodOverloading
     {
+
     }
 }
 /*
